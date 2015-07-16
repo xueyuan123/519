@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh
+">
+    <meta charset="UTF-8">
+    <title>Twinkle | Square</title>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+
+    <!--JQuery Js-->
+    <script src="/static/js/jquery/jquery-2.1.1.min.js"></script>
+
+    <!--bootstrap js & css -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/less-1.7.1.min.js"></script>
+
+    <!--my js & css-->
+    <script src="/static/js/index/index.js"></script>
+    <link href="/static/css/index/index.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Pages</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/home/">Home</a></li>
+            <li><a id="changeInfo" data-toggle="modal" data-target="#myModal2" href="javascript:void(0)">Information</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav" style="margin-left: 36%;">
+            <li>
+                <a href="/home/" style="margin: 0; padding: 0;">
+                    <img id="user_headshot" src="" style="width: 40px; height: 40px; margin: 5px;" class="img-thumbnail">
+                </a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+</div>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="/static/images/face.jpg" class="big_pic" id="carousel1">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <img src="/static/images/face.jpg" class="big_pic" id="carousel2">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <img src="/static/images/face.jpg" class="big_pic" id="carousel3">
+            <div class="carousel-caption">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~ Photo Share part  beign~~~~~~~~~~~~~~~~~-->
+<div id="photoFrame">
+  <div class="row photoShow" style="margin-top: 2%; padding: 0;">
+
+  </div>
+</div>
+
+
+
+  <div style="margin-left: 45%; margin-top: 3%; margin-bottom: 8%;">
+    <button type="button" class="btn btn-default btn-lg" style="border: 0;">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </button>
+    <button type="button" class="btn btn-default btn-lg" style="border: 0;">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </button>
+  </div>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~ Photo Share part  end~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Modal part  ~~~~~~~~~~~~~~~-->
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Twinkle Photo Sharing</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+
+          <div class="col-md-8" style="height: 100%;">
+            <div class="thumbnail">
+              <img id="original_photo" data-src="holder.js/300x300" src="">
+            </div>
+          </div>
+
+          <div class="col-md-4" style="height: 100%;">
+            <div class="row">
+              <div class="col-md-3">
+                    <img id="host_headshot" class="img-circle" src="" style="width: 50px; height: 50px;">
+              </div>
+              <div class="col-md-9">
+                    <span id="host_name" style="font-size: 25px; color: lawngreen;"></span>
+              </div>
+            </div>
+            <p id="photo_description" style="margin-top: 7%;">
+            </p>
+            <form id="commentForm" role="form" name="form" method="POST" action="/user/comment/" target="id_iframe" >
+              <div style=" margin-top: 3%;">
+                <button id="likeBtn" type="button" class="btn btn-default btn-lg" style="border: 0;">
+
+                </button>
+                <button id="commBtn" type="button" class="btn btn-default btn-lg" style="border: 0;">
+
+                </button>
+                <button type="submit" class="btn btn-default btn-lg" style="border: 0;" onclick="return CheckComment()">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <button id="followBtn" type="button" class="btn btn-default btn-lg" style="border: 0;">
+                  <span class="glyphicon glyphicon-eye-open"></span>
+                </button>
+              </div>
+                <textarea id="comment_textarea" style="resize: none; width: 260px; height: 70px;" name="content"></textarea>
+                <input id="comm_img_id" name="comm_img_id" type="text" hidden="hidden" value=""/>
+            </form>
+
+            <iframe id="id_iframe" name="id_iframe" style="display:none;"></iframe>
+
+            <div id="comment_part" style="height: 400px; width: 250px; overflow-y: auto; overflow-x: hidden">
+            <!-- dynamic loading part-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- User Infomation Change trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Information</h4>
+      </div>
+      <form name="form1" role="form" id="infoForm" enctype="multipart/form-data" method="POST" action="/user/changeinfo/" target="my_iframe">
+
+          <div class="modal-body">
+
+            <div class="input-group" style="margin-top: 5%;">
+                <span class="input-group-addon">Nickname </span>
+                <input id="change_info_nickname" type="text" class="form-control" name="nickname">
+            </div>
+
+            <div class="input-group" style="margin-top: 5%;">
+                <span class="input-group-addon">Signature </span>
+                <input id="change_info_signature" type="text" class="form-control" name="signature">
+            </div>
+
+            <div class="input-group" style="margin-top: 5%;">
+                <span class="input-group-addon">Headshot </span>
+                <input id="change_info_headshot" type="file" class="form-control" name="headshot">
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="change_info_submit_btn" type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+
+      </form>
+      <iframe id="my_iframe" name="my_iframe" style="display:none;"></iframe>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
