@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Twinkle | Register</title>
+
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+
+    <!--JQuery Js-->
+    <script src="/static/js/jquery/jquery-2.1.1.min.js"></script>
+
+    <!--bootstrap js & css -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/less-1.7.1.min.js"></script>
+
+    <!--my js & css-->
+    <script src="/static/js/register/register.js"></script>
+    <link rel="stylesheet" href="/static/css/register/register.css">
+
+
+
+</head>
+<body id="registerBody">
+    <div id="regbox">
+        <h4 id="slogan">Sharing your photo、making your dream</h4>
+        <div id="formBody">
+            <div>
+                <form role="form" name="form" method="POST" action="/user/register/">
+                    <div id="iem">
+                        <input id="mail" type="text" name="username" class="reginfo form-control" placeholder="Email"/>
+                    </div>
+                    <div id="ipd">
+                        <input type="password" name="password" class="reginfo form-control" placeholder="Password"/>
+                    </div>
+                    <div id="inn">
+                        <input type="text" name="nickname" class="reginfo form-control" placeholder="Nickname"/>
+                    </div>
+                    <div>
+                        <img id="warnning" src="/static/images/warnning.png" style="height: 48px; width: 260px; margin-top: 1%;"/>
+                    </div>
+                    <div>
+                        <input type="submit" id="subbtn" value="Register" class="regbtn btn btn-success" onclick="return check()"/>
+                    </div>
+                </form>
+        </div>
+        </div>
+    </div>
+    <div id="loginLabel">
+        <a id="toLogin" href="/login/">Log in</a>
+    </div>
+
+</body>
+</html>

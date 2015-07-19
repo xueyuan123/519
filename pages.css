@@ -1,0 +1,42 @@
+.user_headshot {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+}
+
+.info_btn {
+    width: 70px;
+    height: 70px;
+    border: none;
+    margin-top: 15px;
+    background-color: lightcyan;
+}
+
+
+footer {
+    padding: 0;
+    margin: 0;
+}
+
+.like_btn_size {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: pink;
+    border-color: pink;
+}
+
+
+.photo_frame {
+    background-color: pink;
+    height: 200px;
+    margin: 5px;
+}
+
+.img_div {
+    padding: 0;
+    margin: 0;
+    margin-top: 5%;
+}
+
+

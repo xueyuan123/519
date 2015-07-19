@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Twinkle | Login</title>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+
+    <!--JQuery Js-->
+    <script src="/static/js/jquery/jquery-2.1.1.min.js"></script>
+
+    <!--bootstrap js & css -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/less-1.7.1.min.js"></script>
+
+    <!--my js & css-->
+    <script src="/static/js/login/login.js"></script>
+    <link rel="stylesheet" href="/static/css/login/login.css">
+
+</head>
+<body id="loginBody">
+    <div id="regbox">
+        <h4 id="slogan">Sharing your photo、making your dream</h4>
+        <div id="formBody">
+            <div>
+                <form role="form" name="form" method="POST" action="/user/login/">
+                    <div id="iem">
+                        <input id="mail" type="text" name="username" class="reginfo form-control" placeholder="Email"/>
+                    </div>
+                    <div id="ipd">
+                        <input type="password" name="password" class="reginfo form-control" placeholder="Password"/>
+                    </div>
+                    <div>
+                        <img id="warnning" src="/static/images/warnning.png" style="height: 48px; width: 260px; margin-top: 1%;"/>
+                    </div>
+                    <div>
+                        <input type="submit" id="subbtn" value="Log in" class="regbtn btn btn-success" onclick="return check()"/>
+                    </div>
+                </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Twinkle | Home</title>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+
+    <!--JQuery Js-->
+    <script src="/static/js/jquery/jquery-2.1.1.min.js"></script>
+
+    <!--bootstrap js & css -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/less-1.7.1.min.js"></script>
+
+    <!--my js & css-->
+    <script src="/static/js/pages/pages.js"></script>
+    <link rel="stylesheet" href="/static/css/pages/pages.css">
+
+</head>
+<body>
+
+<!--~~~~~~~~~~~~~~~~~~~~~Nav bar part          begin~~~~~~~~~-->
+
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index/">Pages</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/home/">Home</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav" style="margin-left: 36%;">
+            <li>
+                <a href="/home/" style="margin: 0; padding: 0;">
+                    <img id="user_headshot" src="" style="width: 40px; height: 40px; margin: 5px;" class="img-thumbnail">
+                </a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+</div>
+
+<!---------~~~~~~~~~~Nav bar part          end~~~~~~~~~~~~~~~~~~~~~~~~>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~User Sharing Photo Display~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<div class="row">
+
+  <div class="col-md-1">
+  </div>
+
+  <div class="col-md-10" style="height:100px;">
+
+    <div style="width: 100%;">
+        <img src="/static/images/qdwq.jpg" style="width: 100%; height: 400px;">
+    </div>
+
+    <div style="margin: 13px;">
+        <div class="row">
+
+          <div class="col-md-4" style="height: 100px; background-color: lightcyan;">
+            <img id="owner_headshot" src="" class="user_headshot" >
+            <span id="owner_nickname" style="font-size: 25px; font-weight: bold;">What Fuck</span>
+          </div>
+
+          <div class="col-md-4" style="height: 100px; background-color: lightcyan;">
+            <a href="/home/">
+                <button type="button" class="btn btn-default info_btn" >
+                    <span class="glyphicon glyphicon-picture" style="font-size: 40px;"></span>
+                    <p id="photo_num">0</p>
+                </button>
+            </a>
+            <button type="button" class="btn btn-default info_btn" >
+                <span class="glyphicon glyphicon-user" style="font-size: 40px;"></span>
+                <p id="followed_num">0</p>
+            </button>
+            <button id="followingBtn" type="button" class="btn btn-default info_btn" >
+                <span class="glyphicon glyphicon-eye-open" style="font-size: 40px;"></span>
+                <p id="following_num">0</p>
+            </button>
+            <button type="button" class="btn btn-default info_btn" >
+                <span class="glyphicon glyphicon-heart" style="font-size: 40px;"></span>
+                <p id="praise_num">0</p>
+            </button>
+            <button type="button" class="btn btn-default info_btn" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-share-alt" style="font-size: 40px;"></span>
+                <p>Sharing</p>
+            </button>
+          </div>
+
+          <div class="col-md-4" style="height: 100px; background-color: lightcyan;">
+
+          </div>
+
+        </div>
+    </div>
+
+   <!--~~~~~~Photo Display part          begin~~~~~~~~~~~~~~~~~~~~~~~-->
+  <div>
+
+    <div id="photoFrame">
+      <div class="row photoShow" style="margin-top: 2%; padding: 0;">
+
+      </div>
+    </div>
+
+
+      <div style="margin-left: 45%; margin-top: 3%;">
+        <button type="button" class="btn btn-default btn-lg" style="border: 0;">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </button>
+        <button type="button" class="btn btn-default btn-lg" style="border: 0;">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+      </div>
+  </div>
+
+
+
+  </div>
+
+  <div class="col-md-1">
+  </div>
+
+</div>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~User Sharing Photo Display~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~User Upload Photo Pary~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sharing Photo</h4>
+      </div>
+
+      <form role="form" name="form" method="POST" action="/user/upload/" enctype="multipart/form-data">
+
+          <div class="modal-body">
+            <input type="file" name="upload_photo">
+            <p style="margin: 10px;">Give your photo some description but only less than 30 words.</p>
+            <label>
+                <textarea name="description" maxlength="30" style="resize: none; width: 260px; height: 70px;"></textarea>
+            </label>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~User Upload Photo Pary~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Modal part  ~~~~~~~~~~~~~~~-->
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Twinkle Photo Sharing</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+
+          <div class="col-md-8" style="height: 100%;">
+            <div class="thumbnail">
+              <img id="original_photo" data-src="holder.js/300x300" src="">
+            </div>
+          </div>
+
+          <div class="col-md-4" style="height: 100%;">
+            <div class="row">
+              <div class="col-md-3">
+                    <img id="host_headshot" class="img-circle" src="" style="width: 50px; height: 50px;">
+              </div>
+              <div class="col-md-9">
+                    <span id="host_name" style="font-size: 25px; color: lawngreen;"></span>
+              </div>
+            </div>
+            <p id="photo_description" style="margin-top: 7%;">
+            </p>
+            <form id="commentForm" role="form" name="form1" method="POST" action="/user/comment/" target="id_iframe" >
+              <div style=" margin-top: 3%;">
+                <button id="likeBtn" type="button" class="btn btn-default btn-lg" style="border: 0;">
+
+                </button>
+                <button id="commBtn" type="button" class="btn btn-default btn-lg" style="border: 0;">
+
+                </button>
+                <button type="submit" class="btn btn-default btn-lg" style="border: 0;" onclick="return CheckComment()">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </div>
+                <textarea id="comment_textarea" style="resize: none; width: 260px; height: 70px;" name="content"></textarea>
+                <input id="comm_img_id" name="comm_img_id" type="text" hidden="hidden" value=""/>
+            </form>
+
+            <iframe id="id_iframe" name="id_iframe" style="display:none;"></iframe>
+
+            <div id="comment_part" style="height: 400px; width: 250px; overflow-y: auto; overflow-x: hidden">
+            <!-- dynamic loading part-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>
